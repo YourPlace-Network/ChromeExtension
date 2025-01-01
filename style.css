@@ -1,0 +1,20 @@
+.custom-tweet-button {
+    border: none;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.custom-tweet-button:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
