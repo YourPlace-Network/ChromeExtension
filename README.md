@@ -2,7 +2,11 @@
 ## Distributed Social Media
 This is the Chrome Extension for YourPlace, a distributed social media platform that gives complete sovereignty back to users. You own your content creation, publishing, consumption and follower relationships.
 
-The extension enabled embeds and rich social media features on any website. It is designed to work with the (https://yourplace.network/download)[YourPlace Server]
+The extension enabled embeds and rich social media features on many websites. Currently supported sites include:
+* Twitter
+* YouTube
+
+It is designed to work with the [YourPlace Server](https://yourplace.network/download)
 
 #### Running & Testing
 1. Clone this repository

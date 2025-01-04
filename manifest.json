@@ -23,13 +23,17 @@
   "permissions": ["activeTab"],
   "web_accessible_resources": [{
     "resources": ["yourplace-logo.svg"],
-    "matches": ["https://twitter.com/*", "https://x.com/*"]
+    "matches": ["https://twitter.com/*", "https://x.com/*", "https://*.youtube.com/*", "https://youtube.com/*"]
   }],
   "content_scripts": [
     {
       "matches": ["https://twitter.com/*", "https://x.com/*"],
-      "js": ["content.js"],
-      "css": ["style.css"]
+      "js": ["content/twitter-content.js"],
+      "css": ["content/twitter-style.css"]
+    },
+    {
+      "matches": ["https://youtube.com/*", "https://*.youtube.com/*"],
+      "js": ["content/youtube-content.js"]
     }
   ]
 }
