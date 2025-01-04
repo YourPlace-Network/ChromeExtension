@@ -2,9 +2,9 @@ function addButtonToTweets() {
     const tweets = document.querySelectorAll('article[data-testid="tweet"]');
 
     tweets.forEach(tweet => {
-        if (!tweet.querySelector('.custom-tweet-button')) {
+        if (!tweet.querySelector('.yourplace-twitter-button')) {
             const button = document.createElement('button');
-            button.className = 'custom-tweet-button';
+            button.className = 'yourplace-twitter-button';
 
             const icon = document.createElement('img');
             icon.src = chrome.runtime.getURL('yourplace-logo.svg');
