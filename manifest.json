@@ -4,9 +4,12 @@
   "version": "1.0",
   "description": "Adds YourPlace integration to your browser",
   "icons": {
-    "16": "yourplace-logo.svg",
-    "48": "yourplace-logo.svg",
-    "128": "yourplace-logo.svg"
+    "16": "icons/icon16.png",
+    "19": "icons/icon19.png",
+    "32": "icons/icon32.png",
+    "38": "icons/icon38.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "permissions": ["activeTab"],
   "web_accessible_resources": [{
