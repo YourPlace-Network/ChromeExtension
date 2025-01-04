@@ -1,4 +1,4 @@
-.custom-tweet-button {
+.yourplace-twitter-button {
     border: none;
     background: none;
     padding: 8px;
@@ -15,6 +15,6 @@
     height: 1.5em;
 }
 
-.custom-tweet-button:hover {
+.yourplace-twitter-button:hover {
     background-color: rgba(29, 155, 240, 0.1);
 }

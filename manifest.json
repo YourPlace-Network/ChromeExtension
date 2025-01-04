@@ -23,7 +23,7 @@
   "permissions": ["activeTab"],
   "web_accessible_resources": [{
     "resources": ["yourplace-logo.svg"],
-    "matches": ["https://twitter.com/*", "https://x.com/*", "https://*.youtube.com/*", "https://youtube.com/*"]
+    "matches": ["https://twitter.com/*", "https://x.com/*", "https://*.youtube.com/*"]
   }],
   "content_scripts": [
     {
@@ -32,7 +32,7 @@
       "css": ["content/twitter-style.css"]
     },
     {
-      "matches": ["https://youtube.com/*", "https://*.youtube.com/*"],
+      "matches": ["https://youtube.com/*"],
       "js": ["content/youtube-content.js"]
     }
   ]
