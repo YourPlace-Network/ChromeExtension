@@ -28,12 +28,16 @@
   "content_scripts": [
     {
       "matches": ["https://twitter.com/*", "https://x.com/*"],
-      "js": ["content/twitter-content.js"],
-      "css": ["content/twitter-style.css"]
+      "js": ["src/js/twitter-content.js"],
+      "css": ["src/css/twitter-style.css"]
     },
     {
       "matches": ["https://youtube.com/*"],
-      "js": ["content/youtube-content.js"]
+      "js": ["src/js/youtube-content.js"]
+    },
+    {
+        "matches": ["https://x.com/*"],
+        "js": ["src/js/twitter-address-scraper.js"]
     }
   ]
 }
