@@ -32,8 +32,9 @@
       "css": ["src/css/twitter-style.css"]
     },
     {
-      "matches": ["https://youtube.com/*"],
-      "js": ["src/js/youtube-content.js"]
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["src/js/youtube-content.js"],
+      "css": ["src/css/youtube-style.css"]
     },
     {
         "matches": ["https://x.com/*"],

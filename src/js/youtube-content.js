@@ -1,62 +1,40 @@
-function addCustomShareButton() {
+function addYourPlaceShareButton() {
     const sharePanel = document.querySelector('yt-third-party-share-target-section-renderer');
     if (!sharePanel) return;
-
-    // Check if our button already exists to avoid duplicates
-    if (document.querySelector('.yourplace-youtube-share-button')) return;
-
-    // Create the button container
-    const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'yourplace-youtube-share-button';
-    buttonContainer.style.cssText = `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 4px;
-    margin: 8px;
-  `;
-
-    // Create the icon
+    if (sharePanel.querySelector('.yourplace-youtube-share-button')) return;
+    const contentsDiv = sharePanel.querySelector('#contents');
+    if (!contentsDiv) return;
+    const embedButton = contentsDiv.querySelector('yt-share-target-renderer');
+    if (!embedButton) return;
+    const button = document.createElement('button');
+    button.className = 'yourplace-youtube-share-button';
+    button.title = 'YourPlace';
+    button.setAttribute('role', 'button');
+    const iconWrapper = document.createElement('div');
+    iconWrapper.className = 'yourplace-youtube-share-icon';
     const icon = document.createElement('img');
     icon.src = chrome.runtime.getURL('yourplace-logo.svg');
-    icon.style.width = '24px';
-    icon.style.height = '24px';
-    icon.style.marginRight = '8px';
-
-    // Create the text
-    const text = document.createElement('span');
-    text.textContent = 'Custom Share';
-    text.style.color = 'var(--yt-spec-text-primary)';
-
-    // Add click handler
-    buttonContainer.addEventListener('click', () => {
-        // Add your custom share functionality here
-        console.log('Custom share clicked!');
+    icon.alt = 'YourPlace';
+    iconWrapper.appendChild(icon);
+    const title = document.createElement('div');
+    title.className = 'yourplace-youtube-share-title';
+    title.textContent = 'YourPlace';
+    button.appendChild(iconWrapper);
+    button.appendChild(title);
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const shareInput = document.querySelector('yt-copy-link-renderer #share-url');
+        const videoUrl = shareInput ? shareInput.value : window.location.href;
+        const draftUrl = 'https://app.yourplace.network/?draft=' + encodeURIComponent(' ' + videoUrl);
+        window.open(draftUrl, '_blank');
     });
-
-    // Assemble the button
-    buttonContainer.appendChild(icon);
-    buttonContainer.appendChild(text);
-
-    // Add the button to the share panel
-    const shareOptions = sharePanel.querySelector('#share-target-options');
-    if (shareOptions) {
-        shareOptions.appendChild(buttonContainer);
-    }
+    embedButton.insertAdjacentElement('afterend', button);
 }
 
-// Watch for the share modal to appear
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-            if (node.nodeName === 'yt-third-party-share-target-section-renderer') {
-                addCustomShareButton();
-            }
-        });
-    });
+const observer = new MutationObserver(() => {
+    addYourPlaceShareButton();
 });
-
 observer.observe(document.body, {
     childList: true,
     subtree: true
