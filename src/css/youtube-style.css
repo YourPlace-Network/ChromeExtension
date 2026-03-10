@@ -8,6 +8,7 @@
     width: 72px;
     min-width: 72px;
     padding: 0;
+    margin-top: 5px;
     vertical-align: top;
 }
 .yourplace-youtube-share-button:hover .yourplace-youtube-share-icon {
